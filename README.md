@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Next.js Boilerplate por Uxcale
 
 Este esqueleto de Next.js, creado por Uxcale, está diseñado como un punto de partida robusto y eficiente para el desarrollo de aplicaciones frontend modernas.
@@ -51,3 +52,7 @@ Este proyecto hace uso de tecnologías clave para el desarrollo y producción, i
     **Tailwind CSS**: Para estilizar la interfaz de usuario.
 
 Consulta el archivo `package.json` para una lista completa de las dependencias.
+=======
+# strapi-front-example
+Example of frontend calls of a Strapi application
+>>>>>>> main
