@@ -1,0 +1,17 @@
+.container {
+    @apply md:pe-0 flex flex-row min-h-screen w-screen relative;
+}
+
+.sidebar {
+    @apply pl-6 py-6;
+    /* min-width: min-content; */
+    flex: auto 0 5;
+}
+
+.content {
+    @apply flex flex-col w-full h-full relative py-6 px-6;
+}
+
+.children {
+    @apply w-full h-full relative pt-6;
+}

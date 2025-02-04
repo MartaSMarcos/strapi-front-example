@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Boilerplate por Uxcale
 
-## Getting Started
+Este esqueleto de Next.js, creado por Uxcale, está diseñado como un punto de partida robusto y eficiente para el desarrollo de aplicaciones frontend modernas.
 
-First, run the development server:
+## Tabla de Contenidos
+
+-   [Instalación](#instalación)
+-   [Uso](#uso)
+-   [Scripts](#scripts)
+-   [Dependencias](#dependencias)
+
+## Instalación
+
+Empieza clonando el repositorio y siguiendo estos pasos para una instalación sin contratiempos:
+
+1. Clona el repositorio de Uxcale.
+2. Dirígete al directorio del proyecto.
+3. Instala las dependencias:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Uso
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para arrancar el servidor de desarrollo y ver tu proyecto en acción:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run start:dev
+```
 
-## Learn More
+Abra [http://localhost:3000](http://localhost:3000) con su navegador para ver el resultado.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Incluido en este boilerplate están los siguientes scripts para facilitar el desarrollo:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+-   **build**: Prepara el proyecto para producción.
+-   **serve**: Permite previsualizar la build de producción localmente.
+-   **lint**: Analiza y limpia el código.
+-   **start**: Arranca la herramienta Storybook para la visualización de componentes.
+-   **start:dev**: Arranca el servidor de desarrollo.
 
-## Deploy on Vercel
+## Dependencias
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Este proyecto hace uso de tecnologías clave para el desarrollo y producción, incluyendo:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   **React**: Para la construcción de UIs.
+-   **Next.js**: Para la navegación y el manejo de rutas.
+-   **Axios**: Para realizar solicitudes HTTP.
+    **Tailwind CSS**: Para estilizar la interfaz de usuario.
+
+Consulta el archivo `package.json` para una lista completa de las dependencias.

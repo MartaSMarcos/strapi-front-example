@@ -1,0 +1,144 @@
+.switch {
+    $animation-duration: 0.4s;
+    margin: 3px;
+    position: relative;
+    display: inline-block;
+    width: 4.2rem;
+    height: 2.2rem;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    &__slider {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        transition: all 0.4s;
+        padding: 3px;
+
+        cursor: pointer;
+        border-radius: 100px;
+        border: solid 2px rgb(var(--color-secondary));
+        @apply bg-primary;
+
+        &::before {
+            display: block;
+            border-radius: 100px;
+            @apply bg-secondary;
+
+            content: '';
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            -webkit-transition: 0.4s;
+            transition: all 0.4s;
+        }
+
+        /* &__icon-slot {
+            transition: all 0.4s;
+            position: relative;
+            left: 0;
+            display: block;
+            top: 0;
+            bottom: 50%;
+            border-radius: 100px;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        } */
+    }
+
+    input:checked + &__slider {
+        @apply bg-secondary;
+        &::before {
+            @apply bg-primary;
+        }
+    }
+
+    input:focus + &__slider {
+    }
+
+    input:checked + &__slider:before {
+        transform: translateX(110%);
+    }
+}
+
+input:checked + .switch__slider {
+    .switch__slider__icon-slot {
+        transform: translate(110%);
+    }
+}
+
+.variant {
+    &--default.switch {
+        .switch__slider {
+            background-color: rgb(var(--color-primary));
+            border: solid 2px rgb(var(--color-secondary));
+            &::before {
+                @apply bg-secondary;
+            }
+        }
+
+        input:checked + &__slider {
+            background-color: rgb(var(--color-secondary));
+            &::before {
+                @apply bg-primary;
+            }
+        }
+    }
+
+    &--ticked.switch {
+    }
+
+    &--clear.switch {
+        .switch__slider {
+            @apply bg-white;
+            border: solid 2px rgb(var(--color-secondary));
+            &::before {
+                @apply bg-white;
+                border: solid 2px rgb(var(--color-secondary));
+            }
+        }
+
+        input:checked + .switch__slider {
+            @apply bg-primary;
+            &::before {
+                @apply bg-white;
+            }
+        }
+    }
+
+    &--crossed.switch {
+    }
+}
+
+.size {
+    &-xl.switch {
+        width: 5rem;
+        height: 3rem;
+    }
+
+    &-lg.switch {
+        width: 4.5rem;
+        height: 2.5rem;
+    }
+
+    &-md.switch {
+        width: 4.2rem;
+        height: 2.2rem;
+    }
+
+    &-sm.switch {
+        width: 3rem;
+        height: 1.5rem;
+    }
+}

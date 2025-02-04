@@ -1,0 +1,86 @@
+.container {
+    @apply bg-blue-1400 rounded-lg flex flex-col align-middle justify-between h-max min-h-full text-blue-300;
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+
+    flex: auto 1 0;
+}
+
+.sidebarOpened {
+    @apply w-fit;
+
+    .topSide > .header {
+        border-bottom: 1px solid;
+        @apply border-b-grey-800 flex align-middle justify-between flex-row p-4;
+    }
+
+    .itemLink,
+    .itemLinkBottom {
+        &:hover .labelLink {
+            @apply underline;
+        }
+    }
+}
+
+.sidebarClosed {
+    @apply w-20 h-full;
+
+    .topSide > .header {
+        @apply border-b-grey-800 flex items-center justify-center flex-col p-4 gap-2;
+    }
+
+    .linksContainer,
+    .linksBottomContainer {
+        @apply flex justify-start items-start flex-col p-4;
+    }
+
+    .labelLink {
+        @apply text-black w-full p-0;
+        white-space: nowrap;
+    }
+}
+
+.header {
+    border-bottom: 1px solid;
+    @apply border-b-grey-800 flex flex-row align-middle w-full p-4;
+
+    & * {
+        @apply m-auto;
+    }
+}
+
+.linksContainer {
+    @apply flex justify-start items-start flex-col px-6 py-8;
+}
+
+.linksBottomContainer {
+    border-top: 1px solid;
+    @apply py-4 border-t-grey-800 px-6;
+}
+
+.itemLink,
+.itemLinkBottom {
+    @apply flex justify-start items-center flex-row cursor-pointer w-full p-3;
+}
+
+.labelLink {
+    @apply px-4 text-black w-full;
+    white-space: nowrap;
+}
+
+.iconLink {
+}
+
+.itemLinkResaltado,
+.itemLinkBottomResaltado {
+    @apply bg-blue-1300 flex justify-start items-center flex-row cursor-pointer rounded-md p-3 relative w-full font-semibold;
+}
+
+.itemLinkBottomResaltado::before,
+.itemLinkResaltado::before {
+    content: '';
+    @apply absolute top-0 left-0 h-full w-[5px] bg-blue-300 rounded-s-md;
+}
+
+.alertCircle {
+    @apply bg-red-500 w-3 h-2 rounded-full mb-4;
+}

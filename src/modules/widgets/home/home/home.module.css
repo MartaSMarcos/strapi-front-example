@@ -1,0 +1,35 @@
+.container {
+    @apply min-h-screen flex flex-col gap-8 row-start-2 items-center sm:items-start bg-black align-middle pb-10;
+}
+
+.title {
+    @apply m-auto mt-10 text-4xl font-bold text-center text-white;
+}
+
+.row {
+    @apply grid grid-cols-3 gap-4 mt-6;
+}
+
+.card {
+    @apply grid grid-cols-2 justify-between gap-8 justify-items-center m-auto;
+}
+
+.cover {
+    @apply object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg;
+}
+
+.link {
+    @apply w-60 h-40 text-center flex justify-center flex-col p-4 m-4 items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
+}
+
+.info {
+    @apply flex flex-col justify-between p-4 leading-normal;
+}
+
+.name {
+    @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white;
+}
+
+.description {
+    @apply mb-3 font-normal text-gray-700 dark:text-gray-400;
+}

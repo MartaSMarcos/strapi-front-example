@@ -1,0 +1,31 @@
+/* $max-width: 20rem; */
+
+.apiSideList {
+    @apply bg-primary text-secondary rounded-lg flex flex-col align-middle justify-between;
+    /* height: 61.2rem; */
+    width: 20.8rem;
+    padding: 2rem 1.5rem;
+    min-height: 100%;
+    overflow: auto;
+
+    &__heading {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    &__input {
+        border: none;
+        border-bottom: solid 1px;
+        border-radius: 0px;
+        margin-bottom:;
+    }
+
+    &__list {
+        margin-top: 1rem;
+        padding-left: 2rem;
+    }
+}
+
+.apiSideList__list {
+}
