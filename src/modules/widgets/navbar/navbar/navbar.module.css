@@ -1,0 +1,11 @@
+.container {
+    @apply p-4 bg-gray-800 text-white flex justify-between;
+}
+
+.title {
+    @apply text-xl;
+}
+
+.language_button {
+    @apply px-4 py-2 bg-blue-500 rounded hover:bg-blue-600 transition;
+}

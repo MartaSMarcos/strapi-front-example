@@ -5,43 +5,50 @@ import { TvShow } from '@/types/tv-show.types'
 import Link from 'next/link'
 import { query } from '@/common/query'
 import { useLocale } from '@/common/providers/locale-context/locale-context.provider'
+import { useTvShows } from '@/api/tv-show'
 const NEXT_PUBLIC_STRAPI_HOST = process.env.NEXT_PUBLIC_STRAPI_HOST
 
 export type ListTvShowsWidgetProps = {}
 
-export function getTVShows(locale: string) {
-    return query(`tv-shows?locale=${locale}&populate=*`).then((res) => {
-        return res.data.map((tvshow: TvShow) => {
-            const { name, releaseYear, endYear, slug, description, cover } =
-                tvshow
-            const image = `${NEXT_PUBLIC_STRAPI_HOST}${cover?.url}`
+// export function getTVShows(locale: string) {
+//     return query(`tv-shows?locale=${locale}&sort=name:asc&populate=*`).then(
+//         (res) => {
+//             return res.data.map((tvshow: TvShow) => {
+//                 const { name, releaseYear, endYear, slug, description, cover } =
+//                     tvshow
+//                 const image = `${NEXT_PUBLIC_STRAPI_HOST}${cover?.url}`
 
-            return { name, releaseYear, endYear, slug, description, image }
-        })
-    })
-}
+//                 return { name, releaseYear, endYear, slug, description, image }
+//             })
+//         }
+//     )
+// }
 
 export function ListTvShowsWidget(props: ListTvShowsWidgetProps) {
     const { locale } = useLocale()
-    const [shows, setShows] = useState<TvShow[]>([])
-    const [loading, setLoading] = useState<boolean>(true)
-    const [error, setError] = useState<string | null>(null)
+    // const [shows, setShows] = useState<TvShow[]>([])
 
-    useEffect(() => {
-        getTVShows(locale)
-            .then((showData) => {
-                setShows(showData)
-                setLoading(false)
-            })
-            .catch((err) => {
-                setError('Error al cargar las series: ' + err.message)
-                setLoading(false)
-            })
-    }, [locale])
+    const {
+        data: shows,
+        isLoading,
+        isError,
+    } = useTvShows({ locale: locale, size: 10 })
 
-    if (loading) return <p>Cargando series...</p>
-    if (error) return <p>{error}</p>
-    if (shows.length === 0) return <p>No se encontraron series.</p>
+    // useEffect(() => {
+    //     getTVShows(locale)
+    //         .then((showData) => {
+    //             setShows(showData)
+    //             setLoading(false)
+    //         })
+    //         .catch((err) => {
+    //             setError('Error al cargar las series: ' + err.message)
+    //             setLoading(false)
+    //         })
+    // }, [locale])
+
+    if (isLoading) return <p>Cargando series...</p>
+    if (isError) return <p>Error al cargar las series</p>
+    if (shows?.data.length === 0) return <p>No se encontraron series.</p>
 
     return (
         <div data-testid="list-tv-shows-widget" className={styles.container}>
@@ -50,13 +57,16 @@ export function ListTvShowsWidget(props: ListTvShowsWidgetProps) {
             </h1>
 
             <div className={styles.card}>
-                {shows.map((show) => (
+                {shows?.data.map((show) => (
                     <Link
                         href={`/tv-shows/${show.slug}`}
                         key={show.slug}
                         className={styles.link}
                     >
-                        <img className={styles.cover} src={show.image} />
+                        <img
+                            className={styles.cover}
+                            src={`${NEXT_PUBLIC_STRAPI_HOST}${show.cover?.url}`}
+                        />
                         <div className={styles.info}>
                             <h5 className={styles.name}>{show.name}</h5>
                             <p className={styles.description}>

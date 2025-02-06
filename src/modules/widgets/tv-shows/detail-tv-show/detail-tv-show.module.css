@@ -41,3 +41,11 @@
 .description {
     @apply mb-3 font-normal text-gray-700 dark:text-gray-400;
 }
+
+.genres {
+    @apply flex flex-row gap-4 w-fit ml-0 items-center;
+}
+
+.genre {
+    @apply text-gray-700 dark:text-gray-400 w-fit px-4 py-2 items-center bg-white border border-gray-200 rounded-full shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
+}
