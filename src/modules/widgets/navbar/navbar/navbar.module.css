@@ -1,11 +1,35 @@
 .container {
-    @apply p-4 bg-gray-800 text-white flex justify-between;
+    @apply p-4 bg-gray-800 text-white flex justify-between content-center;
 }
 
 .title {
-    @apply text-xl;
+    @apply text-xl flex content-center;
+
+    align-items: center;
 }
 
 .language_button {
     @apply px-4 py-2 bg-blue-500 rounded hover:bg-blue-600 transition;
+}
+
+.link {
+    @apply mx-4 text-white hover:text-blue-400 transition;
+}
+
+.menu {
+    @apply hidden md:flex md:align-middle md:justify-items-center;
+
+    align-items: center;
+}
+
+.full {
+    @apply hidden md:inline-block;
+}
+
+.responsive {
+    @apply md:hidden;
+}
+
+.responsive_menu {
+    @apply text-white absolute top-16 right-0 bg-gray-900 p-4 flex flex-col items-end rounded-md shadow-lg;
 }
