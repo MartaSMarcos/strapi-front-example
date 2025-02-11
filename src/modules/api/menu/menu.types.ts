@@ -1,14 +1,30 @@
-import type { Pagination } from '@/hookey'
-
 export type Menu = {
     menuId: MenuId
     documentId: string // ID para hacer el GET
     name: string
-    slug: string
-    order: number
+    descriptionBlocks: DescriptionBlocks[]
+    items: Item[]
 }
 
 export type MenuId = number
+
+export type DescriptionBlocks = {
+    type: string
+    children: { type: string; text: string }[]
+}
+
+export type Item = {
+    name: string
+    order: number
+    slug: string
+    subitems: Subitem[]
+}
+
+export type Subitem = {
+    name: string
+    order: string
+    slug: string
+}
 
 export type MenuApiResult = {
     data: Menu
@@ -27,5 +43,5 @@ export type MenuListApiParams = {
 
 export type MenuGetApiParams = {
     locale: string
-    documentId: string
+    documentId?: string
 }

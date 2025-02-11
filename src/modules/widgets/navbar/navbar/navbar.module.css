@@ -16,6 +16,10 @@
     @apply mx-4 text-white hover:text-blue-400 transition;
 }
 
+.sublink {
+    @apply hover:text-blue-400 transition;
+}
+
 .menu {
     @apply hidden md:flex md:align-middle md:justify-items-center;
 

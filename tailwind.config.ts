@@ -1,18 +1,83 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
 export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+    content: [
+        './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    ],
+    theme: {
+        extend: {
+            colors: {
+                white: '#ffffff',
+                black: '#000000',
+                accent: {
+                    800: '#f6f9ea',
+                    700: '#f2f6e0',
+                    600: '#e4edbe',
+                    DEFAULT: '#a9c52e', // Color principal
+                    500: '#98b129',
+                    400: '#879e25',
+                    300: '#7f9423',
+                    200: '#65761c',
+                    100: '#4c5915',
+                    50: '#3b4510',
+                },
+                primary: {
+                    800: '#effafa',
+                    700: '#e6f8f7',
+                    600: '#ccf0ee',
+                    DEFAULT: '#5acec8',
+                    500: '#51b9b4',
+                    400: '#48a5a0',
+                    300: '#449b96',
+                    200: '#367c78',
+                    100: '#285d5a',
+                    50: '#1f4846',
+                },
+                secondary: {
+                    800: '#eaebeb',
+                    700: '#dfe1e1',
+                    600: '#bcc1c2',
+                    DEFAULT: '#283739',
+                    500: '#243233',
+                    400: '#202c2e',
+                    300: '#1e292b',
+                    200: '#182122',
+                    100: '#12191a',
+                    50: '#0e1314',
+                },
+                tertiary: {
+                    800: '#e9f3f5',
+                    700: '#deedef',
+                    600: '#badade',
+                    DEFAULT: '#218896',
+                    500: '#1e7a87',
+                    400: '#1a6d78',
+                    300: '#196671',
+                    200: '#14525a',
+                    100: '#0f3d44',
+                    50: '#0c3035',
+                },
+            },
+            fontSize: {
+                '2xs': '0.625rem',
+                xs: '0.75rem',
+                sm: '0.875rem',
+                base: '1rem',
+                lg: '1.125rem',
+                xl: '1.375rem',
+                '2xl': '1.5rem',
+                '3xl': '1.75rem',
+                '4xl': '2rem',
+                '5xl': '2.25rem',
+                '6xl': '3rem',
+                '7xl': '3.5625rem',
+            },
+            fontFamily: {
+                inter: ['Inter', 'sans-serif'],
+            },
+        },
     },
-  },
-  plugins: [],
-} satisfies Config;
+    plugins: [],
+} satisfies Config

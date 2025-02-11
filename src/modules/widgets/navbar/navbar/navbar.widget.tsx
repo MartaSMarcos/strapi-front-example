@@ -1,9 +1,10 @@
-import { useMenus } from '@/api/menu'
+import { useMenu } from '@/api/menu'
 import styles from './navbar.module.css'
 import { useLocale } from '@/common/providers/locale-context/locale-context.provider'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
+import DescriptionBlock from '@/common/components/description-block/description-block.component'
 
 export type NavbarWidgetProps = {}
 
@@ -12,19 +13,13 @@ export function NavbarWidget(props: NavbarWidgetProps) {
     const [showMenu, setShowMenu] = useState(false)
     const menuRef = useRef<HTMLDivElement>(null)
 
-    const {
-        data: menu,
-        isLoading,
-        isError,
-    } = useMenus({ locale: locale, size: 10 })
+    const { data: menu } = useMenu({ locale: locale })
 
     const toggleLanguage = () => {
-        setLocale(locale === 'es' ? 'en' : 'es') // Alternar entre español e inglés
+        setLocale(locale === 'es' ? 'en' : 'es')
     }
 
-    const handleToggleMenu = () => {
-        setShowMenu(!showMenu)
-    }
+    const handleToggleMenu = () => setShowMenu(!showMenu)
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -37,34 +32,40 @@ export function NavbarWidget(props: NavbarWidgetProps) {
         }
 
         document.addEventListener('mousedown', handleClickOutside)
-
-        return () => {
+        return () =>
             document.removeEventListener('mousedown', handleClickOutside)
-        }
     }, [])
 
     return (
-        <nav className={styles.container}>
+        <div className={styles.container}>
             <Link className={styles.title} href="/">
-                Movie App
+                Axpe web
             </Link>
+
             <div className={styles.menu}>
-                {menu?.data.map((menu) => (
+                {/* Renderizar HTML de descriptionBlocks */}
+                {/* {menu?.data?.descriptionBlocks?.map((block, index) => (
+                    <DescriptionBlock key={index} block={block} />
+                ))} */}
+
+                {menu?.data.items.map((item, index) => (
                     <Link
-                        href={`/${menu.slug}`}
-                        key={menu.slug}
+                        href={`/${item.slug}`}
+                        key={index}
                         className={styles.link}
                     >
-                        {menu.name}
+                        {item.name}
                     </Link>
                 ))}
             </div>
+
             <button
                 onClick={toggleLanguage}
                 className={`${styles.full} ${styles.language_button}`}
             >
                 {locale === 'es' ? '🇪🇸 Español' : '🇬🇧 English'}
             </button>
+
             <div className={styles.responsive} ref={menuRef}>
                 <button onClick={handleToggleMenu}>
                     {showMenu ? (
@@ -73,6 +74,7 @@ export function NavbarWidget(props: NavbarWidgetProps) {
                         <Menu size={32} className="text-white" />
                     )}
                 </button>
+
                 {showMenu && (
                     <>
                         <button
@@ -81,11 +83,12 @@ export function NavbarWidget(props: NavbarWidgetProps) {
                         >
                             {locale === 'es' ? '🇪🇸 Español' : '🇬🇧 English'}
                         </button>
+
                         <div className={styles.responsive_menu}>
-                            {menu?.data.map((item) => (
+                            {menu?.data.items.map((item, index) => (
                                 <Link
                                     href={`/${item.slug}`}
-                                    key={item.slug}
+                                    key={index}
                                     className={styles.link}
                                     onClick={() => setShowMenu(false)}
                                 >
@@ -96,6 +99,6 @@ export function NavbarWidget(props: NavbarWidgetProps) {
                     </>
                 )}
             </div>
-        </nav>
+        </div>
     )
 }
